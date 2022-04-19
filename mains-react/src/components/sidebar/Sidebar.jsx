@@ -8,6 +8,8 @@ import {
   HelpOutline,
   WorkOutline,
 } from "@mui/icons-material";
+import { Users } from "../../sampleData"
+import CloseFriends from "../closeFriends/CloseFriends";
 
 export default function Sidebar() {
   return (
@@ -46,34 +48,9 @@ export default function Sidebar() {
         <button className="sidebarButton">Mostrar mais</button>
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
-          <li className="sidebarFriend">
-            <img src="/assets/person/person2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Killua</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/person2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Killua</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/person2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Killua</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/person2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Killua</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/person2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Killua</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/person2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Killua</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/person2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Killua</span>
-          </li>
+          {Users.map((u) => (
+            <CloseFriends key={u.id} user={u} />
+          ))}
         </ul>
       </div>
     </div>
