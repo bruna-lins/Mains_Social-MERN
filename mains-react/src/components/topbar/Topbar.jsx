@@ -1,11 +1,16 @@
 import "./topbar.css";
 import { Search, Person, Chat, Notifications } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <span className="logo">Mains</span>
+      <Link to="/" style={{ textDecoration: "none" }} 
+      //resolve o problema de não atualizar a pagina quando clica
+      onClick={() => {window.location.href="/"}}>
+          <span className="logo">Mains</span>
+        </Link>
       </div>
 
       <div className="topbarCenter">
