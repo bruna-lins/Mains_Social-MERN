@@ -7,7 +7,7 @@ export const Users = [
     {
       id:2,
       profilePicture: "person/person2.jpg",
-      username: "Killua",
+      username: "Janell Shrum",
     },
     {
       id:3,
@@ -17,7 +17,7 @@ export const Users = [
     {
       id:4,
       profilePicture: "person/person4.jpg",
-      username: "Miaw",
+      username: "Dora Hawks",
     },
     {
       id:5,
@@ -27,17 +27,17 @@ export const Users = [
     {
       id:6,
       profilePicture: "person/person6.jpg",
-      username: "Bruna",
+      username: "Shirley Beauchamp",
     },
     {
       id:7,
       profilePicture: "person/person7.jpg",
-      username: "Jada Bennett",
+      username: "Travis Bennett",
     },
     {
       id:8,
       profilePicture: "person/person8.jpg",
-      username: "Camila",
+      username: "Kristen Thomas",
     },
     {
       id:9,
@@ -47,7 +47,7 @@ export const Users = [
     {
       id:10,
       profilePicture: "person/person10.jpg",
-      username: "Alluka",
+      username: "Safak Kocaoglu",
     },
   ];
   
@@ -96,7 +96,7 @@ export const Users = [
     },
     {
       id: 6,
-      photo: "post/6.jpg",
+      photo: "posts/post6.jpg",
       date: "1 day ago",
       userId: 6,
       like: 44,
@@ -105,7 +105,7 @@ export const Users = [
     {
       id: 7,
       desc: "Never regret anything that made you smile.",
-      photo: "post/7.jpg",
+      photo: "posts/post7.jpg",
       date: "2 days ago",
       userId: 7,
       like: 52,
@@ -113,7 +113,7 @@ export const Users = [
     },
     {
       id: 8,
-      photo: "post/8.jpg",
+      photo: "posts/post8.jpg",
       date: "3 days ago",
       userId: 8,
       like: 15,
@@ -122,7 +122,7 @@ export const Users = [
     {
       id: 9,
       desc: "Change the world by being yourself.",
-      photo: "post/9.jpg",
+      photo: "posts/post9.jpg",
       date: "5 days ago",
       userId: 9,
       like: 11,
@@ -130,7 +130,7 @@ export const Users = [
     },
     {
       id: 10,
-      photo: "post/10.jpg",
+      photo: "posts/post10.jpg",
       date: "1 week ago",
       userId: 10,
       like: 104,

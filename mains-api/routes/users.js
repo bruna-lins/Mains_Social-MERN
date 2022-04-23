@@ -46,13 +46,18 @@ router.delete("/:id", async (req, res) => {
 })
 
 // Get One
-router.get("/:id", async (req, res) => {
-    try{
-        const user = await User.findById(req.params.id);
+router.get("/", async (req, res) => {
+    const userId = req.query.userId;
+    const username = req.query.username;
+
+    try {
+        const user = userId 
+        ? await User.findById(userId) 
+        : await User.findOne({ username: username });
         //criando array pro que não vai mostrar na consulta
-        const {password, updatedAt, createdAt, isAdmin, ...other} = user._doc
+        const { password, updatedAt, createdAt, ...other } = user._doc
         res.status(200).json(other);
-    } catch(erro){
+    } catch (erro) {
         res.status(500).json(erro);
     }
 })
@@ -65,19 +70,19 @@ router.put("/:id/follow", async (req, res) => {
         try {
             const user = await User.findById(req.params.id);
             const currentUser = await User.findById(req.body.userId);
-            if(!user.followers.includes(req.body.userId)) { 
-                await user.updateOne({ $push: { followers: req.body.userId}});
-                await currentUser.updateOne({ $push: { followings: req.params.id}});
+            if (!user.followers.includes(req.body.userId)) {
+                await user.updateOne({ $push: { followers: req.body.userId } });
+                await currentUser.updateOne({ $push: { followings: req.params.id } });
                 res.status(200).json("Você está seguindo este usuário.")
-            } else { 
+            } else {
                 res.status(403).json("Você já segue esse usuário.")
             }
-        } catch (erro) { 
+        } catch (erro) {
             res.status(500).json(erro)
         }
 
         //se for o mesmo
-    } else { 
+    } else {
         res.status(403).json("você não pode seguir a si mesmo.")
     }
 });
@@ -90,19 +95,19 @@ router.put("/:id/unfollow", async (req, res) => {
         try {
             const user = await User.findById(req.params.id);
             const currentUser = await User.findById(req.body.userId);
-            if(user.followers.includes(req.body.userId)) { 
-                await user.updateOne({ $pull: { followers: req.body.userId}});
-                await currentUser.updateOne({ $pull: { followings: req.params.id}});
+            if (user.followers.includes(req.body.userId)) {
+                await user.updateOne({ $pull: { followers: req.body.userId } });
+                await currentUser.updateOne({ $pull: { followings: req.params.id } });
                 res.status(200).json("Você deixou de seguir esse usuário.")
-            } else { 
+            } else {
                 res.status(403).json("Você não segue esse usuário.")
             }
-        } catch (erro) { 
+        } catch (erro) {
             res.status(500).json(erro)
         }
 
         //se for o mesmo
-    } else { 
+    } else {
         res.status(403).json("Você não pode deixar de seguir a si mesmo.")
     }
 });
